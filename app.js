@@ -722,12 +722,13 @@ async function fetchData() {
         data.Constiteuncy.forEach(constituency => {
             // Ensure candidates is defined and has at least one element
             if (Array.isArray(constituency.candidates) && constituency.candidates.length > 0 && constituency.candidates[0].position === 'W') {
+                var imglink = 'https://specials.mathrubhumi.com/loksabha2024/images/candidates/'+constituency.candidates[0].english.toLowerCase().replace(" ", "-")+'.jpg';
                 wonCad.push({
                     name: constituency.name,
                     malayalam: constituency.candidates[0].malayalam,
                     lead: constituency.candidates[0].lead,
                     front: constituency.candidates[0].front,
-                    image: constituency.candidates[0].english
+                    image: imglink
                 });
             }
         });
@@ -746,11 +747,30 @@ async function fetchData() {
   fetchData();
 
   async function displayData() {
-    // document.getElementById('name-box').innerHTML = wonCad[0].name;
-    // document.getElementById('img-box').innerHTML = wonCad[0].image;
-    // document.getElementById('malayalam-box').innerHTML = wonCad[0].malayalam;
-    // document.getElementById('lead-box').innerHTML = wonCad[0].lead;
+    var n = 3;
+    var i = 0;
+    setInterval( () => {
+    document.getElementById('name-box').innerHTML = wonCad[i].name;
+    document.getElementById('img-box').src= wonCad[i].image;
+    document.getElementById('malayalam-box').innerHTML = wonCad[i].malayalam;
+    document.getElementById('lead-box').innerHTML = 'Lead : ' + wonCad[i].lead;
+    document.getElementById('front-box').innerHTML = wonCad[i].front + ' ജയിച്ചു';
+
+    if(wonCad[i].front == 'LDF'){    
+        document.getElementById('img-box').style.borderColor ="red" 
+    }else if(wonCad[i].front == 'UDF'){
+        document.getElementById('img-box').style.borderColor ="blue" 
+    }else if(wonCad[i].front == 'NDA'){
+        document.getElementById('img-box').style.borderColor ="orange" 
+    }else{
+        document.getElementById('img-box').style.borderColor ="green" 
+    }
+
 
     
 
+    i++;
+
+    if(n < i){ i = 0 ;}
+    },2000)
   }

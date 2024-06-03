@@ -1,0 +1,19 @@
+.info-box{
+    border-style: solid;
+    text-align: center;
+    position: relative;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    padding: 1%;
+}
+
+.img-box{
+    border-radius: 50%;
+    border-style: solid;
+    border-color: white;
+}
+
+.img-container{
+    float : left;
+}
+
