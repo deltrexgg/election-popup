@@ -750,11 +750,23 @@ async function fetchData() {
     var n = 3;
     var i = 0;
     setInterval( () => {
-    document.getElementById('name-box').innerHTML = wonCad[i].name;
-    document.getElementById('img-box').src= wonCad[i].image;
-    document.getElementById('malayalam-box').innerHTML = wonCad[i].malayalam;
-    document.getElementById('lead-box').innerHTML = 'Lead : ' + wonCad[i].lead;
-    document.getElementById('front-box').innerHTML = wonCad[i].front + ' ജയിച്ചു';
+    let imgBox = document.getElementById('img-box');
+    let nameBox = document.getElementById('name-box'); 
+    let malayalamBox = document.getElementById('malayalam-box');
+    let leadBox =   document.getElementById('lead-box');
+    let frontBox = document.getElementById('front-box');
+
+    nameBox.innerHTML = wonCad[i].name;
+    imgBox.src= wonCad[i].image;
+    malayalamBox.innerHTML = wonCad[i].malayalam;
+    leadBox.innerHTML = 'Lead : ' + wonCad[i].lead;
+    frontBox.innerHTML = wonCad[i].front + ' ജയിച്ചു';
+
+    let array = ['malayalam-box', 'lead-box', 'front-box','name-box'];
+    imgBox.classList.add('circleAnimation');
+    array.forEach(element => {
+      document.getElementById(element).classList.add('fadeAnimation');
+    });
 
     if(wonCad[i].front == 'LDF'){    
         document.getElementById('img-box').style.borderColor ="red" 
@@ -765,12 +777,16 @@ async function fetchData() {
     }else{
         document.getElementById('img-box').style.borderColor ="green" 
     }
-
-
     
+    setTimeout(()=>{
+      imgBox.classList.remove('circleAnimation');
+      array.forEach(element=>{
+        document.getElementById(element).classList.remove('fadeAnimation')
+      })
+    },2000)
 
     i++;
 
     if(n < i){ i = 0 ;}
-    },2000)
+    },3000)
   }
