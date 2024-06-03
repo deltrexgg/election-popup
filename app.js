@@ -1,5 +1,6 @@
+var wonCad = [];
+
 async function fetchData() {
-    var wonCad = [];
     try {
 
     const data = {
@@ -719,7 +720,6 @@ async function fetchData() {
 
       if (data && data.Constiteuncy) {
         data.Constiteuncy.forEach(constituency => {
-            console.log(constituency.name);
             // Ensure candidates is defined and has at least one element
             if (Array.isArray(constituency.candidates) && constituency.candidates.length > 0 && constituency.candidates[0].position === 'W') {
                 wonCad.push({
@@ -733,6 +733,7 @@ async function fetchData() {
         });
 
         console.log(wonCad);
+        displayData()
 
       } else {
         console.error('Empty response');
@@ -743,3 +744,13 @@ async function fetchData() {
   }
   
   fetchData();
+
+  async function displayData() {
+    // document.getElementById('name-box').innerHTML = wonCad[0].name;
+    // document.getElementById('img-box').innerHTML = wonCad[0].image;
+    // document.getElementById('malayalam-box').innerHTML = wonCad[0].malayalam;
+    // document.getElementById('lead-box').innerHTML = wonCad[0].lead;
+
+    
+
+  }
