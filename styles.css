@@ -1,19 +1,19 @@
 .info-box{
-    border-style: solid;
     text-align: center;
-    position: relative;
+    border-style: solid;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
     padding: 1%;
+    width: fit-content;
+block-size: fit-content;
+
 }
 
 .img-box{
     border-radius: 50%;
     border-style: solid;
     border-color: white;
-}
-
-.img-container{
-    float : left;
+    width: 60%;
+    height: auto; 
 }
 
