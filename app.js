@@ -759,8 +759,7 @@ async function fetchData() {
     nameBox.innerHTML = wonCad[i].name;
     imgBox.src= wonCad[i].image;
     malayalamBox.innerHTML = wonCad[i].malayalam;
-    leadBox.innerHTML = 'Lead : ' + wonCad[i].lead;
-    frontBox.innerHTML = wonCad[i].front + ' ജയിച്ചു';
+    leadBox.innerHTML = `<span id='front-text'>${wonCad[i].front}</span>`+' Won by ' + wonCad[i].lead;
 
     let array = ['malayalam-box', 'lead-box', 'front-box','name-box'];
     imgBox.classList.add('circleAnimation');
@@ -769,13 +768,17 @@ async function fetchData() {
     });
 
     if(wonCad[i].front == 'LDF'){    
-        document.getElementById('img-box').style.borderColor ="red" 
+        document.getElementById('img-box').style.borderColor ="red";
+        document.getElementById('front-text').style.color = "red";
     }else if(wonCad[i].front == 'UDF'){
-        document.getElementById('img-box').style.borderColor ="blue" 
+        document.getElementById('img-box').style.borderColor ="blue"; 
+        document.getElementById('front-text').style.color = "blue";
     }else if(wonCad[i].front == 'NDA'){
-        document.getElementById('img-box').style.borderColor ="orange" 
+        document.getElementById('img-box').style.borderColor ="orange";
+        document.getElementById('front-text').style.color = "orange"; 
     }else{
-        document.getElementById('img-box').style.borderColor ="green" 
+        document.getElementById('img-box').style.borderColor ="green";
+        document.getElementById('front-text').style.color = "green"; 
     }
     
     setTimeout(()=>{
@@ -789,4 +792,8 @@ async function fetchData() {
 
     if(n < i){ i = 0 ;}
     },3000)
+  }
+
+  function closeElectionpopup(){
+    document.getElementById('election-popup').style.display = 'none'
   }

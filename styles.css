@@ -6,6 +6,8 @@
     padding: 1%;
     width: fit-content;
     block-size: fit-content;
+    position: relative; /* Make the container the reference point for positioning */
+
 }
 
 .img-box{
@@ -53,3 +55,8 @@
     animation: circle7124 2s ease-in-out;
 }
 
+.popup-close-btn{
+    position: absolute; /* Make the button positioned relative to the container */
+    top: 0; /* Place it at the top of the container */
+    left: 0;
+}
