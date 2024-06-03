@@ -1,5 +1,5 @@
 async function fetchData() {
-    var wonCad;
+    var wonCad = [];
     try {
 
     const data = {
@@ -719,24 +719,20 @@ async function fetchData() {
 
       if (data && data.Constiteuncy) {
         data.Constiteuncy.forEach(constituency => {
-        //   console.log(constituency.name);
-          if (constituency.candidates && constituency.candidates[0].position === 'W') {
-            // console.log(constituency.candidates[0].malayalam);
-            // console.log(constituency.candidates[0].front);
-            // console.log(constituency.candidates[0].lead);
-
-            wonCad = {
-                name : constituency.name,
-                malayalam : constituency.candidates[0].malayalam,
-                lead : constituency.candidates[0].lead,
-                front : constituency.candidates[0].front,
-                image : constituency.candidates[0].english
-             }
-
-          }
+            console.log(constituency.name);
+            // Ensure candidates is defined and has at least one element
+            if (Array.isArray(constituency.candidates) && constituency.candidates.length > 0 && constituency.candidates[0].position === 'W') {
+                wonCad.push({
+                    name: constituency.name,
+                    malayalam: constituency.candidates[0].malayalam,
+                    lead: constituency.candidates[0].lead,
+                    front: constituency.candidates[0].front,
+                    image: constituency.candidates[0].english
+                });
+            }
         });
 
-        console.log(wonCad)
+        console.log(wonCad);
 
       } else {
         console.error('Empty response');
