@@ -1,6 +1,6 @@
 .info-box{
     width: 250px;
-    height: auto;
+    height: 350px;
     border-radius: 5%;
     text-align: center;
     font-family: 'Roboto';
@@ -15,7 +15,6 @@
     padding-bottom: 1px;
     line-height: 0.5;
 }
-
 
 .img-box{
     border-radius: 50%;
@@ -32,6 +31,7 @@
     font-family: 'Noto Sans';
     font-size: 22px;
     font-weight: bold;
+    line-height: 1.5;
 }
 
 .lead-box{
@@ -54,9 +54,19 @@
     transform: scale(1.8,1.8);
 }
 
+.popup-close-btn:hover{
+    transform: scale(2.5,2.5);
+}
+
 .election-popup{
     float: right;
 }
+
+.lead-count{
+    color:green;
+    font-weight: bold;
+}
+
 
 @keyframes circle7124 {
     0% {
