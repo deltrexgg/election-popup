@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <title>Election Pop Up</title>
 </head>
 <body>
     <div id="election-popup" class="election-popup">
-        <div class="info-box">
-            <button class="popup-close-btn" onclick="closeElectionpopup()">X</button>
+        <div class="info-box" id="info-box">
+            <button class="popup-close-btn" onclick="closeElectionpopup()"><img width="10" height="10" src="https://img.icons8.com/windows/32/delete-sign.png" alt="delete-sign"/></button>
         <div class="img-container">
-            <img class="img-box" id="img-box">
+            <img class="img-box" id="img-box"><br><br><br><br>
         </div>
-        <div>
-            <p id="name-box"></p>
-            <p id="malayalam-box"></p>
-            <p id="lead-box"></p>
+        <div class="sub-info-box">
+            <span id="malayalam-box" class="malayalam-box"></span>
+            <p id="name-box" class="name-box"></p>
+            <p id="lead-box" class="lead-box"></p>
             <p id="front-box"></p>
         </div>
         </div>

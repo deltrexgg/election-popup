@@ -1,7 +1,20 @@
 var wonCad = [];
-
 async function fetchData() {
     try {
+      //var data;
+      const apiUrl = 'https://www.mathrubhumi.com/result/loksabha-election-2024/json/constituencies.json';
+
+      fetch(apiUrl).then(response => {
+        if(!response.ok){
+          throw new Error('Network response was not ok');   
+        }
+        return response.json();
+      })
+      .then(apiData => {
+        apiData = data;
+      }).catch(error => {
+        console.error(error)
+      })
 
     const data = {
         "Constiteuncy": [
@@ -720,7 +733,6 @@ async function fetchData() {
 
       if (data && data.Constiteuncy) {
         data.Constiteuncy.forEach(constituency => {
-            // Ensure candidates is defined and has at least one element
             if (Array.isArray(constituency.candidates) && constituency.candidates.length > 0 && constituency.candidates[0].position === 'W') {
                 var imglink = 'https://specials.mathrubhumi.com/loksabha2024/images/candidates/'+constituency.candidates[0].english.toLowerCase().replace(" ", "-")+'.jpg';
                 wonCad.push({
@@ -750,13 +762,15 @@ async function fetchData() {
     var n = 3;
     var i = 0;
     setInterval( () => {
+      document.getElementById('info-box').style.display = 'block';
+
     let imgBox = document.getElementById('img-box');
     let nameBox = document.getElementById('name-box'); 
     let malayalamBox = document.getElementById('malayalam-box');
     let leadBox =   document.getElementById('lead-box');
     let frontBox = document.getElementById('front-box');
 
-    nameBox.innerHTML = wonCad[i].name;
+    nameBox.innerHTML = '('+wonCad[i].name+')';
     imgBox.src= wonCad[i].image;
     malayalamBox.innerHTML = wonCad[i].malayalam;
     leadBox.innerHTML = `<span id='front-text'>${wonCad[i].front}</span>`+' Won by ' + wonCad[i].lead;
