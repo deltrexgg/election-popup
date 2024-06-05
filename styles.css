@@ -1,6 +1,6 @@
 .info-box{
     width: 250px;
-    height: 350px;
+    height:375px;
     border-radius: 5%;
     text-align: center;
     font-family: 'Roboto';
@@ -21,7 +21,8 @@
     border-color: white;
     transform: translateZ(20px);
     border: 3px solid;
-    width: 60%;
+    height: 200px;
+    width: 200px;
     transform-style: preserve-3d;
     height: auto; 
 }
@@ -42,29 +43,13 @@
     font-size: 20px;
 }
 
-.popup-close-btn{
-    position: absolute; 
-    top: 0; 
-    right: 0;
-    border-radius: 30%;
-    background-color: white;
-    border-style:none;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    display: hidden;
-    transform: scale(1.8,1.8);
-}
-
-.popup-close-btn:hover{
-    transform: scale(2.5,2.5);
-}
-
-.election-popup{
-    float: right;
-}
-
 .lead-count{
     color:green;
     font-weight: bold;
+}
+
+.election-popup{
+    height: 375px;
 }
 
 

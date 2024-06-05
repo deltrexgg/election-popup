@@ -2,21 +2,17 @@ var wonCad = [];
 async function fetchData() {
     try {
       var data;
-      const apiUrl = 'https://www.mathrubhumi.com/result/loksabha-election-2024/json/constituencies.json';
-
-      fetch(apiUrl).then(response => {
-        if(!response.ok){
-          throw new Error('Network response was not ok');   
-        }
-        return response.json();
-      })
-      .then(apiData => {
-        apiData = data;
-      }).catch(error => {
-        console.error(error)
-      })
+      const url = './constituencies.json';
 
 
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Error fetching data: ${response.status}`);
+    }
+
+    data = await response.json();
+
+    console.log(data)
 
       if (data && data.Constiteuncy) {
         data.Constiteuncy.forEach(constituency => {
@@ -70,12 +66,14 @@ async function fetchData() {
       document.getElementById(element).classList.add('fadeAnimation');
     });
 
+    document.getElementById('front-text').style.fontWeight = "bold"
+
     if(wonCad[i].front == 'LDF'){    
         document.getElementById('img-box').style.borderColor ="red";
         document.getElementById('front-text').style.color = "red";
     }else if(wonCad[i].front == 'UDF'){
-        document.getElementById('img-box').style.borderColor ="blue"; 
-        document.getElementById('front-text').style.color = "blue";
+        document.getElementById('img-box').style.borderColor ="#0080FF"; 
+        document.getElementById('front-text').style.color = "#0080FF";
     }else if(wonCad[i].front == 'NDA'){
         document.getElementById('img-box').style.borderColor ="orange";
         document.getElementById('front-text').style.color = "orange"; 
@@ -97,6 +95,3 @@ async function fetchData() {
     },3000)
   }
 
-  function closeElectionpopup(){
-    document.getElementById('election-popup').style.display = 'none'
-  }
